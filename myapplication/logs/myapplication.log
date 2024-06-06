@@ -1709,3 +1709,31 @@ java.lang.IllegalArgumentException: Name for argument of type [java.lang.String]
 2024-06-06 21:57:22.192 DEBUG --- [  restartedMain] gpagroup.Application                     : Running with Spring Boot v3.3.0, Spring v6.1.8
 2024-06-06 21:57:22.192  INFO --- [  restartedMain] gpagroup.Application                     : No active profile set, falling back to 1 default profile: "default"
 2024-06-06 21:57:23.130  INFO --- [  restartedMain] gpagroup.Application                     : Started Application in 1.147 seconds (process running for 1.662)
+2024-06-06 22:05:23.182  INFO --- [  restartedMain] o.s.boot.SpringApplication               : 
+>                                                                            <
+>                ____ ____   _       ____                                    <
+>               / ___|  _ \ / \     / ___|_ __ ___  _   _ _ __               <
+>              | |  _| |_) / _ \   | |  _| '__/ _ \| | | | '_ \              <
+>              | |_| |  __/ ___ \  | |_| | | | (_) | |_| | |_) |             <
+>               \____|_| /_/   \_\  \____|_|  \___/ \__,_| .__/              <
+>                     2024 (c) https://gpa-group.it      |_|                 <
+>                                                                            <
+
+2024-06-06 22:05:23.227  INFO --- [  restartedMain] gpagroup.Application                     : Starting Application using Java 17 with PID 26356 (/Users/giangio/GitHub/spring-web-app-template/build/classes/groovy/main started by giangio in /Users/giangio/GitHub/spring-web-app-template)
+2024-06-06 22:05:23.227 DEBUG --- [  restartedMain] gpagroup.Application                     : Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-06 22:05:23.228  INFO --- [  restartedMain] gpagroup.Application                     : No active profile set, falling back to 1 default profile: "default"
+2024-06-06 22:05:24.124  INFO --- [  restartedMain] gpagroup.Application                     : Started Application in 1.098 seconds (process running for 1.573)
+2024-06-06 22:07:03.281  INFO --- [  restartedMain] o.s.boot.SpringApplication               : 
+>                                                                            <
+>                ____ ____   _       ____                                    <
+>               / ___|  _ \ / \     / ___|_ __ ___  _   _ _ __               <
+>              | |  _| |_) / _ \   | |  _| '__/ _ \| | | | '_ \              <
+>              | |_| |  __/ ___ \  | |_| | | | (_) | |_| | |_) |             <
+>               \____|_| /_/   \_\  \____|_|  \___/ \__,_| .__/              <
+>                     2024 (c) https://gpa-group.it      |_|                 <
+>                                                                            <
+
+2024-06-06 22:07:03.323  INFO --- [  restartedMain] gpagroup.Application                     : Starting Application using Java 17 with PID 26662 (/Users/giangio/GitHub/spring-web-app-template/build/classes/groovy/main started by giangio in /Users/giangio/GitHub/spring-web-app-template)
+2024-06-06 22:07:03.323 DEBUG --- [  restartedMain] gpagroup.Application                     : Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-06 22:07:03.323  INFO --- [  restartedMain] gpagroup.Application                     : No active profile set, falling back to 1 default profile: "default"
+2024-06-06 22:07:04.152  INFO --- [  restartedMain] gpagroup.Application                     : Started Application in 1.024 seconds (process running for 1.451)
