@@ -1,0 +1,15 @@
+###############################################################################
+#                                   ATTENZIONE                                #
+#                                                                             #
+# Utilizzare solo spazi per indentare. Il livello di indentazione identifica  #
+# un blocco percui è necessario assicurarsi che le variabili siano allineate  #
+# verticalmente. Per approfondimenti: http://www.yaml.org                     #
+###############################################################################
+
+###############################################################################
+# CONFIGURATION
+###############################################################################
+
+application:
+  message:
+    text: Ciao Mondo!
