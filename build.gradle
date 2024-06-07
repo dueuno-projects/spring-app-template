@@ -32,6 +32,8 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
+// See first paragraph:
+// https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes
 tasks.withType(GroovyCompile).configureEach {
 	groovyOptions.parameters = true
 }
