@@ -1,6 +1,6 @@
-package myspringapp.controllers
+package springapp.controllers
 
-import myspringapp.services.MessageService
+import springapp.services.MessageService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping

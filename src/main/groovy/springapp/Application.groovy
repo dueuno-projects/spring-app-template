@@ -1,4 +1,4 @@
-package myspringapp
+package springapp
 
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
@@ -12,7 +12,6 @@ class Application {
 
 	static void main(String... args) {
 		SpringApplication.run(Application, args)
-		log.error "Errors are highlighted!"
 	}
 
 }

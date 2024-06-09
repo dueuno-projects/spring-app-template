@@ -1,5 +1,5 @@
 # Only works when inline
-spring.application.name: myspringapp
+spring.application.name: springapp
 
 spring:
   main:

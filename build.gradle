@@ -6,7 +6,7 @@ plugins {
 	id "org.asciidoctor.jvm.pdf" version "3.3.2"
 }
 
-group = 'it.gpa-group'
+group = 'springapp'
 version = '1.0-SNAPSHOT'
 
 java {

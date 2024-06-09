@@ -34,7 +34,7 @@
     </root>
 
     <logger name="org.springframework" level="INFO" />
-    <logger name="myspringapp" level="DEBUG" />
+    <logger name="springapp" level="DEBUG" />
 
 <!-- HTTP REST-->
 <!--    <logger name="sun.net.www.protocol.http.HttpURLConnection" level="ALL" />-->

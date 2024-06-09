@@ -8,8 +8,8 @@ This is a web application template. Use it to start creating your new project.
 ## Create a new app
 To create a new app from this template:
 
-1. Find/replace the string `myspringapp` in all project files with a name of your choice
-2. Rename the `myspringapp` package with a name of your choice
+1. Find/replace the string `springapp` in all project files with a name of your choice
+2. Rename the `springapp` package with a name of your choice
 
 ## Edit this README
 Markdown Cheat Sheet: https://www.markdownguide.org/cheat-sheet/

@@ -1,4 +1,4 @@
-package myspringapp.config
+package springapp.config
 
 import groovy.transform.CompileStatic
 import org.springframework.context.annotation.Configuration
