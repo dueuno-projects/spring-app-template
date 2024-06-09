@@ -1,4 +1,4 @@
-= myapplication
+= myspringapp
 :source-highlighter: coderay
 :compat-mode!:
 :icons: font
@@ -26,13 +26,13 @@ To execute the application run the following command:
 .Windows
 [subs="attributes"]
 ----
-cmd /C "set JAVA_TOOL_OPTIONS="-Dspring.config.location=C:/path/to/config.yml" java -jar C:/path/to/{myapplication}.jar"
+cmd /C "set JAVA_TOOL_OPTIONS="-Dspring.config.location=C:/path/to/config.yml" java -jar C:/path/to/{myspringapp}.jar"
 ----
 
 .Unix
 [subs="attributes"]
 ----
-JAVA_TOOL_OPTIONS="-Dspring.config.location=/path/to/config.yml" /path/to/{myapplication}.jar
+JAVA_TOOL_OPTIONS="-Dspring.config.location=/path/to/config.yml" /path/to/{myspringapp}.jar
 ----
 
 == User Guide

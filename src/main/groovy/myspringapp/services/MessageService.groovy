@@ -1,6 +1,6 @@
-package gpagroup.services
+package myspringapp.services
 
-import gpagroup.config.ConfigApplication
+import myspringapp.config.ConfigApplication
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired

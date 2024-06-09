@@ -1,4 +1,4 @@
-package gpagroup
+package myspringapp
 
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
@@ -12,7 +12,7 @@ class Application {
 
 	static void main(String... args) {
 		SpringApplication.run(Application, args)
-		log.error "Qualcosa non va!"
+		log.error "Errors are highlighted!"
 	}
 
 }
