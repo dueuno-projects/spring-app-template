@@ -1,4 +1,4 @@
-# Works only if inline
+# Only works when inline
 spring.application.name: myapplication
 
 spring:
