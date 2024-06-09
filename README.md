@@ -1,5 +1,5 @@
-# spring-web-app-template
-Spring Boot Web App Template
+# Spring Boot
+This is a web application template. Use it to start creating your new project.
 
 ## Run the template
 1. Start the application (Gradle task: bootRun)
