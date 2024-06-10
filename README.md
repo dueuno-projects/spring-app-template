@@ -4,8 +4,9 @@ This is a web application template. Use it to start creating your new project.
 
 ## Run the template
 
-1. Start the application with `gradlew bootRun`
-2. Visit http://localhost:8081/api/v1/message/42
+1. Download the [Spring Boot Web App Template](https://github.com/dueuno-projects/micronaut-web-app-template) project
+2. Start the application with `gradlew bootRun`
+3. Visit http://localhost:8081/api/v1/message/42
 
 ## Create a new app
 
