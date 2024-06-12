@@ -1,5 +1,6 @@
 package springapp.services
 
+import groovy.json.JsonOutput
 import springapp.config.ConfigApplication
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
@@ -14,8 +15,15 @@ class MessageService {
     @Autowired
     ConfigApplication configApplication
 
-    String getMessage() {
-        return configApplication.message.text
+    String getMessage(String answer) {
+        Map response = [
+                result: [
+                        question: configApplication.message.text,
+                        answer: answer,
+                ],
+        ]
+
+        return JsonOutput.toJson(response)
     }
 
 }

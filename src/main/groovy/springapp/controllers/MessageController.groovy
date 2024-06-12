@@ -16,8 +16,9 @@ class MessageController {
     @Autowired
     MessageService messageService
 
-    @GetMapping("/message/{id}")
-    String message(@PathVariable String id) {
-        return messageService.message + " We've got '${id}'"
+    @GetMapping("/message/{answer}")
+    String message(@PathVariable String answer) {
+        return messageService.getMessage(answer)
     }
+
 }
