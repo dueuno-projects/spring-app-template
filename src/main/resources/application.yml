@@ -4,3 +4,7 @@ spring.application.name: springapp
 spring:
   main:
     banner-mode: log
+
+springdoc:
+  api-docs:
+    path: /api-docs
