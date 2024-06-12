@@ -1,9 +1,10 @@
 plugins {
 	id 'groovy'
+	id 'codenarc'
 	id 'org.springframework.boot' version '3.3.0'
 	id 'io.spring.dependency-management' version '1.1.5'
-	id "org.asciidoctor.jvm.convert" version "3.3.2"
-	id "org.asciidoctor.jvm.pdf" version "3.3.2"
+	id 'org.asciidoctor.jvm.convert' version '3.3.2'
+	id 'org.asciidoctor.jvm.pdf' version '3.3.2'
 }
 
 group = 'springapp'
@@ -29,7 +30,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
 
 // See first paragraph:
@@ -42,6 +43,15 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+// CODE ANALISYS
+codenarc {
+	toolVersion = '3.4.0'
+	ignoreFailures = true
+	configFile = file("${rootDir}/codenarc/config.groovy")
+	reportsDir = file("$rootDir/codenarc/${project.name}")
+}
+
+// DOCUMENTATION
 compileGroovy.finalizedBy(asciidoctor)
 asciidoctor {
 	baseDirFollowsSourceDir()
@@ -64,5 +74,5 @@ asciidoctor {
 }
 
 bootRun {
-	jvmArgs("-Xms1g", "-Xmx1g")
+	jvmArgs('-Xms1g', '-Xmx1g')
 }
