@@ -1,10 +1,23 @@
 # Only works when inline
 spring.application.name: springapp
 
-spring:
-  main:
-    banner-mode: log
-
 springdoc:
   api-docs:
     path: /api-docs
+
+spring:
+  main:
+    banner-mode: log
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springapp?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+hibernate:
+  physical_naming_strategy: EntityNamingStrategy
