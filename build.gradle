@@ -39,6 +39,9 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
+	// System monitoring
+	implementation 'net.bull.javamelody:javamelody-spring-boot-starter:2.2.0'
+
 	// DATABASE DRIVERS
 	runtimeOnly 'com.mysql:mysql-connector-j'
 }
