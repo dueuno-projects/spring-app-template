@@ -1,8 +1,10 @@
 plugins {
 	id 'groovy'
 	id 'codenarc'
+	id 'application' // auto-applies 'distribution' plugin
 	id 'org.springframework.boot' version '3.3.0'
 	id 'io.spring.dependency-management' version '1.1.5'
+	id 'com.gorylenko.gradle-git-properties' version '1.5.2'
 	id 'org.asciidoctor.jvm.convert' version '3.3.2'
 	id 'org.asciidoctor.jvm.pdf' version '3.3.2'
 }
@@ -96,4 +98,87 @@ asciidoctor {
 
 bootRun {
 	jvmArgs('-Xms1g', '-Xmx1g')
+}
+
+// START SCRIPTS
+// We don't need the default application script
+startScripts {
+	doLast {
+		delete windowsScript
+		delete unixScript
+	}
+}
+
+task createRunScript(type: CreateStartScripts) {
+	mainClass = 'springapp.Application'
+	applicationName = 'run'
+	outputDir = new File(project.rootDir, '/build/startScripts')
+	classpath = jar.outputs.files + project.configurations.runtimeClasspath
+	// We don't need '.bat' scripts
+	doLast { delete windowsScript }
+}
+
+// GIT
+gitProperties { extProperty = 'git' } // Puts git properties into "project.ext.git"
+generateGitProperties.outputs.upToDateWhen { false }
+
+// DISTRIBUTIONS
+tasks.withType(Tar) { enabled = false } // We don't need '.tar.gz' packages
+assembleDist { version = '' } // We don't need version number in final package name
+
+distributions {
+	def versionInfo = [
+			version: "${-> project.ext.git['git.closest.tag.name'] ?: 'SNAPSHOT'}",
+			date   : new Date().format('dd-MM-yyyy @ HH:mm'),
+			branch : "${-> project.ext.git['git.branch']}",
+			message: "${-> project.ext.git['git.commit.message.short']}",
+			author : "${-> project.ext.git['git.commit.user.name']}",
+	]
+
+	main {
+		def env = 'prod'
+		contents {
+			duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+			from createRunScript, {
+				into "bin"
+				filePermissions {
+					unix('rwxr-xr-x')
+				}
+			}
+
+			from jar, {
+				into "lib"
+			}
+
+			from "config", {
+				into "config"
+			}
+
+			from "src/main/resources/VERSION", {
+				expand versionInfo + [env: env.toUpperCase()]
+				into "/${project.name}"
+			}
+		}
+	}
+
+//    TEST {
+//        def env = 'test'
+//        contents {
+//            duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+//            into("bin") {
+//                from(createRunScript)
+//                fileMode = 0755
+//            }
+//            into("lib") {
+//                from { jar }
+//            }
+////            from("config/${env}.yml") {
+////                rename "${env}.yml", "config.yml"
+////            }
+//            from("src/main/resources/VERSION") {
+//                expand versionInfo + [env: env.toUpperCase()]
+//            }
+//            into "/${project.name}"
+//        }
+//    }
 }

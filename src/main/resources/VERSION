@@ -1,0 +1,8 @@
+Environment: ${env}
+Version:     ${version}
+Released:    ${date}
+
+Last Commit: ${message}
+Branch:      ${branch}
+Author:      ${author}
+
