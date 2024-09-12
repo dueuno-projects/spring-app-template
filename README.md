@@ -9,9 +9,12 @@ This is a web application template. Use it to start creating your new project.
 1. Download the [Spring Boot Web App Template](https://github.com/dueuno-projects/spring-web-app-template) project
 2. Start the application:
    - `gradlew bootRun`
-3. Health service is available at:
+3. Edit the source code and trigger a quick restart with `CTRL + F9` on IntelliJ IDEA
+4. Health service is available at:
    - http://localhost:8081/actuator
-3. The API documentation is available at:
+5. Restart the application to reload configuration:
+   - curl --location --request POST 'http://localhost:8081/actuator/restart'
+4. The API documentation is available at:
    - http://localhost:8081/swagger-ui/index.html
 4. Service monitoring is available at:
    - http://localhost:8081/monitoring
