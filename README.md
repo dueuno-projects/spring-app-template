@@ -13,7 +13,7 @@ This is a web application template. Use it to start creating your new project.
 4. Health service is available at:
    - http://localhost:8081/actuator
 5. Restart the application to reload configuration:
-   - curl --location --request POST 'http://localhost:8081/actuator/restart'
+   - curl -X POST 'http://localhost:8081/actuator/restart'
 4. The API documentation is available at:
    - http://localhost:8081/swagger-ui/index.html
 4. Service monitoring is available at:
