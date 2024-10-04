@@ -20,9 +20,20 @@ spring:
     password: root
 
 server:
+  tomcat:
+    basedir: springapp/tomcat
+  servlet:
+    session:
+      persistent: true
+      store-dir: springapp
   compression:
     enabled: true
     mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+
+javamelody:
+  init-parameters:
+    log: true
+    storage-directory: ${user.dir}/springapp/java-melody
 
 management:
   endpoint:
