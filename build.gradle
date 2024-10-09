@@ -144,15 +144,12 @@ distributions {
 					unix('rwxr-xr-x')
 				}
 			}
-
 			from jar, {
 				into "lib"
 			}
-
-			from "config", {
-				into "config"
+			from("config/${env}.yml") {
+				rename "${env}.yml", "config.yml"
 			}
-
 			from "src/main/resources/VERSION", {
 				expand versionInfo + [env: env.toUpperCase()]
 				into "/${project.name}"
@@ -160,24 +157,26 @@ distributions {
 		}
 	}
 
-//    TEST {
-//        def env = 'test'
-//        contents {
-//            duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-//            into("bin") {
-//                from(createRunScript)
-//                fileMode = 0755
-//            }
-//            into("lib") {
-//                from { jar }
-//            }
-////            from("config/${env}.yml") {
-////                rename "${env}.yml", "config.yml"
-////            }
-//            from("src/main/resources/VERSION") {
-//                expand versionInfo + [env: env.toUpperCase()]
-//            }
-//            into "/${project.name}"
-//        }
-//    }
+	TEST {
+		def env = 'test'
+		contents {
+			duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+			from createRunScript, {
+				into "bin"
+				filePermissions {
+					unix('rwxr-xr-x')
+				}
+			}
+			from jar, {
+				into "lib"
+			}
+			from("config/${env}.yml") {
+				rename "${env}.yml", "config.yml"
+			}
+			from("src/main/resources/VERSION") {
+				expand versionInfo + [env: env.toUpperCase()]
+			}
+			into "/${project.name}"
+		}
+	}
 }
