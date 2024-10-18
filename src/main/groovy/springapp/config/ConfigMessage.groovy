@@ -6,5 +6,5 @@ import org.springframework.context.annotation.Configuration
 @CompileStatic
 @Configuration
 class ConfigMessage {
-    String text
+    String someText
 }

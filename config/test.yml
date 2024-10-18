@@ -5,4 +5,4 @@ server:
 
 application:
   message:
-    text: Answer to the Ultimate Question of Life, the Universe, and Everything
+    some-text: Answer to the Ultimate Question of Life, the Universe, and Everything

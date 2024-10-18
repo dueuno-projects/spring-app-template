@@ -18,7 +18,7 @@ class MessageService {
     String getMessage(String answer) {
         Map response = [
                 result: [
-                        question: configApplication.message.text,
+                        question: configApplication.message.someText,
                         answer: answer,
                 ],
         ]
