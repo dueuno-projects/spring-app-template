@@ -11,15 +11,15 @@ This is a web application template. Use it to start creating your new project.
    - `gradlew bootRun`
 3. Edit the source code and trigger a quick restart with `CTRL + F9` on IntelliJ IDEA
 4. Health service is available at:
-   - http://localhost:8081/dev/actuator
+   - http://localhost:8080/actuator
 5. Restart the application to reload configuration:
-   - curl -X POST 'http://localhost:8081/dev/actuator/restart'
+   - curl -X POST 'http://localhost:8080/actuator/restart'
 4. The API documentation is available at:
-   - http://localhost:8081/dev/swagger-ui/index.html
+   - http://localhost:8080/swagger-ui/index.html
 4. Service monitoring is available at:
-   - http://localhost:8081/dev/monitoring
+   - http://localhost:8080/monitoring
 5. You can test the demo service:
-   - http://localhost:8081/dev/api/v1/message/42
+   - http://localhost:8080/api/v1/message/42
 
 ## Create a new app
 
