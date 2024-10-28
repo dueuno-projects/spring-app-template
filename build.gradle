@@ -96,7 +96,10 @@ asciidoctor {
 }
 
 bootRun {
-	jvmArgs('-Xms1g', '-Xmx1g')
+	jvmArgs(
+			'-Xms1g', '-Xmx1g',
+			'-Dspring.profile.active=dev',
+	)
 }
 
 // START SCRIPTS
