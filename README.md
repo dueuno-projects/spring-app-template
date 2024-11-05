@@ -48,7 +48,7 @@ Markdown Cheat Sheet: https://www.markdownguide.org/cheat-sheet/
 
 ```
 It's not what you do,
-but how you do it.
+it's how you do it.
 
 Happy coding :)
 ```
