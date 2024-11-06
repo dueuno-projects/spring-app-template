@@ -26,13 +26,13 @@ To execute the application run the following command:
 .Windows
 [subs="attributes"]
 ----
-cmd /C "set JAVA_TOOL_OPTIONS="-Dspring.config.location=C:/path/to/config.yml" java -jar C:/path/to/{springapp}.jar"
+cmd /C "set JAVA_TOOL_OPTIONS="-Dspring.config.location=C:/path/to/config.yml" java -jar C:/path/to/{application-name}.jar"
 ----
 
 .Unix
 [subs="attributes"]
 ----
-JAVA_TOOL_OPTIONS="-Dspring.config.location=/path/to/config.yml" /path/to/{springapp}.jar
+JAVA_TOOL_OPTIONS="-Dspring.config.location=/path/to/config.yml" /path/to/{application-name}.jar
 ----
 
 == User Guide

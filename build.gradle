@@ -79,6 +79,7 @@ compileGroovy.finalizedBy(asciidoctor)
 asciidoctor {
 	baseDirFollowsSourceDir()
 	attributes = [
+			'application-name': project.name,
 			'revnumber': project.version,
 			'source-highlighter': 'coderay',
 			'icons': 'font',
@@ -91,7 +92,7 @@ asciidoctor {
 	doLast {
 		copy {
 			from('build/docs/asciidoc/')
-			into "${projectDir}/docs/"
+			into "docs"
 		}
 	}
 }
