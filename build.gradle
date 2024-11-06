@@ -9,8 +9,8 @@ plugins {
 	id 'org.asciidoctor.jvm.pdf' version '3.3.2'
 }
 
-group = 'springapp'
-version = '1.0-SNAPSHOT'
+group = projectGroup
+version = projectVersion
 
 java {
 	toolchain {
