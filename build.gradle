@@ -92,7 +92,7 @@ asciidoctor {
 	doLast {
 		copy {
 			from('build/docs/asciidoc/')
-			into "docs"
+			into 'docs'
 		}
 	}
 }
