@@ -23,6 +23,7 @@ repositories {
 }
 
 configurations {
+	// Fetches dependencies as soon as they are released on the server
 	all { resolutionStrategy.cacheChangingModulesFor 0, 'seconds' }
 }
 
@@ -102,10 +103,14 @@ bootRun {
 	)
 }
 
-// START SCRIPTS
-// We don't need the default application script
+// GIT
+gitProperties { extProperty = 'git' } // Puts git properties into "project.ext.git"
+generateGitProperties.outputs.upToDateWhen { false }
+
+// DISTRIBUTIONS
 startScripts {
 	doLast {
+		// We don't need the default application script
 		delete windowsScript
 		delete unixScript
 	}
@@ -116,15 +121,8 @@ task createRunScript(type: CreateStartScripts) {
 	applicationName = 'run'
 	outputDir = new File(project.rootDir, '/build/startScripts')
 	classpath = jar.outputs.files + project.configurations.runtimeClasspath
-	// We don't need '.bat' scripts
-	doLast { delete windowsScript }
 }
 
-// GIT
-gitProperties { extProperty = 'git' } // Puts git properties into "project.ext.git"
-generateGitProperties.outputs.upToDateWhen { false }
-
-// DISTRIBUTIONS
 tasks.withType(Tar) { enabled = false } // We don't need '.tar.gz' packages
 assembleDist { version = '' } // We don't need version number in final package name
 
@@ -142,18 +140,21 @@ distributions {
 		contents {
 			duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 			from createRunScript, {
-				into "bin"
+				into 'bin'
 				filePermissions {
 					unix('rwxr-xr-x')
 				}
 			}
 			from jar, {
-				into "lib"
+				into 'lib'
 			}
 			from("config/${env}.yml") {
-				rename "${env}.yml", "config.yml"
+				rename "${env}.yml", 'config.yml'
 			}
-			from "src/main/resources/VERSION", {
+			from('docs') {
+				into 'docs'
+			}
+			from 'src/main/resources/VERSION', {
 				expand versionInfo + [env: env.toUpperCase()]
 				into "/${project.name}"
 			}
@@ -165,18 +166,21 @@ distributions {
 		contents {
 			duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 			from createRunScript, {
-				into "bin"
+				into 'bin'
 				filePermissions {
 					unix('rwxr-xr-x')
 				}
 			}
 			from jar, {
-				into "lib"
+				into 'lib'
 			}
 			from("config/${env}.yml") {
-				rename "${env}.yml", "config.yml"
+				rename "${env}.yml", 'config.yml'
 			}
-			from("src/main/resources/VERSION") {
+			from('docs') {
+				into 'docs'
+			}
+			from('src/main/resources/VERSION') {
 				expand versionInfo + [env: env.toUpperCase()]
 			}
 			into "/${project.name}"
