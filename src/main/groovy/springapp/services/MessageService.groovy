@@ -1,6 +1,7 @@
 package springapp.services
 
 import groovy.json.JsonOutput
+import org.springframework.stereotype.Service
 import springapp.config.ConfigApplication
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
@@ -8,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Slf4j
-@Component
+@Service
 @CompileStatic
 class MessageService {
 
