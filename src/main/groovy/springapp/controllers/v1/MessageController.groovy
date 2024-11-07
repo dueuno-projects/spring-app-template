@@ -1,5 +1,6 @@
-package springapp.controllers
+package springapp.controllers.v1
 
+import org.springframework.http.MediaType
 import springapp.services.MessageService
 import groovy.transform.CompileStatic
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,7 +17,7 @@ class MessageController {
     @Autowired
     MessageService messageService
 
-    @GetMapping("/message/{answer}")
+    @GetMapping(value = "/message/{answer}", produces = MediaType.APPLICATION_JSON_VALUE)
     String message(@PathVariable String answer) {
         return messageService.getMessage(answer)
     }
