@@ -8,14 +8,14 @@ import springapp.domain.TUser
 
 @CompileStatic
 @RestController
-@RequestMapping(path = "/user")
+@RequestMapping("/user")
 class UserController {
 
     @Autowired
     UserRepository userRepository
 
     @ResponseBody
-    @GetMapping(path = "/add") // call with queryString -> /add?name=Gianluca&email=g.sartori@gmail.com
+    @GetMapping("/add") // call with queryString -> /add?name=Gianluca&email=g.sartori@gmail.com
     String addNewUser(@RequestParam String name, @RequestParam String email) {
         TUser n = new TUser()
         n.setName(name)
@@ -26,7 +26,7 @@ class UserController {
     }
 
     @ResponseBody
-    @GetMapping(path = "/all")
+    @GetMapping("/all")
     Iterable<TUser> getAllUsers() {
         return userRepository.findAll()
     }

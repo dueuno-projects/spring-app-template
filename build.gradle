@@ -18,6 +18,13 @@ java {
 	}
 }
 
+bootRun {
+	jvmArgs(
+			'-Xms3g',
+			'-Xmx3g',
+	)
+}
+
 repositories {
 	mavenCentral()
 }
