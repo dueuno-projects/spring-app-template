@@ -1,12 +1,12 @@
 plugins {
-	id 'groovy'
-	id 'codenarc'
-	id 'application' // auto-applies 'distribution' plugin
-	id 'org.springframework.boot' version '3.3.4'
-	id 'io.spring.dependency-management' version '1.1.6'
-	id 'com.gorylenko.gradle-git-properties' version '2.4.2'
-	id 'org.asciidoctor.jvm.convert' version '3.3.2'
-	id 'org.asciidoctor.jvm.pdf' version '3.3.2'
+	id "groovy"
+	id "codenarc"
+	id "application" // auto-applies "distribution" plugin
+	id "org.springframework.boot" version "3.3.4"
+	id "io.spring.dependency-management" version "1.1.6"
+	id "com.gorylenko.gradle-git-properties" version "2.4.2"
+	id "org.asciidoctor.jvm.convert" version "3.3.2"
+	id "org.asciidoctor.jvm.pdf" version "3.3.2"
 }
 
 group = projectGroup
@@ -20,8 +20,8 @@ java {
 
 bootRun {
 	jvmArgs(
-			'-Xms3g',
-			'-Xmx3g',
+			"-Xms3g",
+			"-Xmx3g",
 	)
 }
 
@@ -31,36 +31,36 @@ repositories {
 
 configurations {
 	// Fetches dependencies as soon as they are released on the server
-	all { resolutionStrategy.cacheChangingModulesFor 0, 'seconds' }
+	all { resolutionStrategy.cacheChangingModulesFor 0, "seconds" }
 }
 
 dependencyManagement {
 	imports {
-		mavenBom 'org.springframework.cloud:spring-cloud-dependencies:2023.0.3'
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2023.0.3"
 	}
 }
 
 dependencies {
 	// GROOVY
-	implementation 'org.apache.groovy:groovy'
-	implementation 'org.apache.groovy:groovy-json'
-	implementation 'org.apache.groovy:groovy-sql'
+	implementation "org.apache.groovy:groovy"
+	implementation "org.apache.groovy:groovy-json"
+	implementation "org.apache.groovy:groovy-sql"
 
 	// SPRING
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.cloud:spring-cloud-starter'
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework.boot:spring-boot-starter-actuator"
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation "org.springframework.cloud:spring-cloud-starter"
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0"
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+	testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+	developmentOnly "org.springframework.boot:spring-boot-devtools"
 
 	// SYSTEM MONITORING
-	implementation 'net.bull.javamelody:javamelody-spring-boot-starter:2.2.0'
+	implementation "net.bull.javamelody:javamelody-spring-boot-starter:2.2.0"
 
 	// DATABASE DRIVERS
-	runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly "com.mysql:mysql-connector-j"
 }
 
 // See first paragraph:
@@ -69,13 +69,13 @@ tasks.withType(GroovyCompile).configureEach {
 	groovyOptions.parameters = true
 }
 
-tasks.named('test') {
+tasks.named("test") {
 	useJUnitPlatform()
 }
 
 // CODE ANALISYS
 codenarc {
-	toolVersion = '3.4.0'
+	toolVersion = "3.4.0"
 	ignoreFailures = true
 	configFile = file("${rootDir}/codenarc/config.groovy")
 	reportsDir = file("$rootDir/codenarc/${project.name}")
@@ -86,33 +86,33 @@ compileGroovy.finalizedBy(asciidoctor)
 asciidoctor {
 	baseDirFollowsSourceDir()
 	attributes = [
-			'application-name': project.name,
-			'revnumber': project.version,
-			'source-highlighter': 'coderay',
-			'icons': 'font',
-			'toc': 'left',
-			'toclevels': 3,
+			"application-name": project.name,
+			"revnumber": project.version,
+			"source-highlighter": "coderay",
+			"icons": "font",
+			"toc": "left",
+			"toclevels": 3,
 	]
 	outputOptions {
-		backends = ['html5']
+		backends = ["html5"]
 	}
 	doLast {
 		copy {
-			from('build/docs/asciidoc/')
-			into 'docs'
+			from("build/docs/asciidoc/")
+			into "docs"
 		}
 	}
 }
 
 bootRun {
 	jvmArgs(
-			'-Xms1g', '-Xmx1g',
-			'-Dspring.profile.active=dev',
+			"-Xms1g", "-Xmx1g",
+			"-Dspring.profile.active=dev",
 	)
 }
 
 // GIT
-gitProperties { extProperty = 'git' } // Puts git properties into "project.ext.git"
+gitProperties { extProperty = "git" } // Puts git properties into "project.ext.git"
 generateGitProperties.outputs.upToDateWhen { false }
 
 // DISTRIBUTIONS
@@ -125,44 +125,44 @@ startScripts {
 }
 
 task createRunScript(type: CreateStartScripts) {
-	mainClass = 'springapp.Application'
-	applicationName = 'run'
-	outputDir = new File(project.rootDir, '/build/startScripts')
+	mainClass = "springapp.Application"
+	applicationName = "run"
+	outputDir = new File(project.rootDir, "/build/startScripts")
 	classpath = jar.outputs.files + project.configurations.runtimeClasspath
 }
 
-tasks.withType(Tar) { enabled = false } // We don't need '.tar.gz' packages
-assembleDist { version = '' } // We don't need version number in final package name
+tasks.withType(Tar) { enabled = false } // We don't need ".tar.gz" packages
+assembleDist { version = "" } // We don't need version number in final package name
 
 distributions {
 	def versionInfo = [
-			version: "${-> project.ext.git['git.closest.tag.name'] ?: 'SNAPSHOT'}",
-			date   : new Date().format('dd-MM-yyyy @ HH:mm'),
-			branch : "${-> project.ext.git['git.branch']}",
-			message: "${-> project.ext.git['git.commit.message.short']}",
-			author : "${-> project.ext.git['git.commit.user.name']}",
+			version: "${-> project.ext.git["git.closest.tag.name"] ?: "SNAPSHOT"}",
+			date   : new Date().format("dd-MM-yyyy @ HH:mm"),
+			branch : "${-> project.ext.git["git.branch"]}",
+			message: "${-> project.ext.git["git.commit.message.short"]}",
+			author : "${-> project.ext.git["git.commit.user.name"]}",
 	]
 
 	main {
-		def env = 'prod'
+		def env = "prod"
 		contents {
 			duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 			from createRunScript, {
-				into 'bin'
+				into "bin"
 				filePermissions {
-					unix('rwxr-xr-x')
+					unix("rwxr-xr-x")
 				}
 			}
 			from jar, {
-				into 'lib'
+				into "lib"
 			}
 			from("config/${env}.yml") {
-				rename "${env}.yml", 'config.yml'
+				rename "${env}.yml", "config.yml"
 			}
-			from('docs') {
-				into 'docs'
+			from("docs") {
+				into "docs"
 			}
-			from 'src/main/resources/VERSION', {
+			from "src/main/resources/VERSION", {
 				expand versionInfo + [env: env.toUpperCase()]
 				into "/${project.name}"
 			}
@@ -170,25 +170,25 @@ distributions {
 	}
 
 	TEST {
-		def env = 'test'
+		def env = "test"
 		contents {
 			duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 			from createRunScript, {
-				into 'bin'
+				into "bin"
 				filePermissions {
-					unix('rwxr-xr-x')
+					unix("rwxr-xr-x")
 				}
 			}
 			from jar, {
-				into 'lib'
+				into "lib"
 			}
 			from("config/${env}.yml") {
-				rename "${env}.yml", 'config.yml'
+				rename "${env}.yml", "config.yml"
 			}
-			from('docs') {
-				into 'docs'
+			from("docs") {
+				into "docs"
 			}
-			from('src/main/resources/VERSION') {
+			from("src/main/resources/VERSION") {
 				expand versionInfo + [env: env.toUpperCase()]
 			}
 			into "/${project.name}"
