@@ -3,6 +3,10 @@ server:
   servlet:
     context-path: /
 
+spring:
+  profiles:
+    active: prod
+
 application:
   message:
     some-text: Answer to the Ultimate Question of Life, the Universe, and Everything
