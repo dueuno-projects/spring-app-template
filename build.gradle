@@ -164,7 +164,7 @@ distributions {
 			}
 			from "src/main/resources/VERSION", {
 				expand versionInfo + [env: env.toUpperCase()]
-				into "/${project.name}"
+				into "."
 			}
 		}
 	}
@@ -191,7 +191,7 @@ distributions {
 			from("src/main/resources/VERSION") {
 				expand versionInfo + [env: env.toUpperCase()]
 			}
-			into "/${project.name}"
+			into "."
 		}
 	}
 }
